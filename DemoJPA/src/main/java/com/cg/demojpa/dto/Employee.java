@@ -29,7 +29,7 @@ public class Employee {
 	@OneToOne(cascade=CascadeType.ALL)
 	
 	private Project proj;
-	@ManyToOne              //Here it creates one additional table in the database. but we don't need this extra table as prim key of one is used as for key in another 
+	@ManyToOne(cascade=CascadeType.ALL)              //Here it creates one additional table in the database. but we don't need this extra table as prim key of one is used as for key in another 
 	@JoinColumn(name="dep_id")
 	private Department dep;
 	

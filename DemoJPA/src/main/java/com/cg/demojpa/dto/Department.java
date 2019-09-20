@@ -2,12 +2,11 @@ package com.cg.demojpa.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import com.cg.demojpa.dto.Employee;
 
 @Entity(name="dept_jpa")
 public class Department {
@@ -16,9 +15,7 @@ public class Department {
 	private Integer depId;
 	@Column(name= "emp_name")
 	private String depName;
-	@OneToMany
-	@JoinColumn(name= "emp_id")
-	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy = "dep")
 	private List<Employee> empList;
 	
 	public Department() {
