@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.transaction.Transaction;
 import com.cg.demojpa.dto.Employee;
+import com.cg.demojpa.dto.Project;
 
 public class EmployeeDaoImpl implements EmployeeDao{
  
@@ -18,9 +19,11 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	@Override
 	public Employee save(Employee emp) {
 		// TODO Auto-generated method stub
+		
 		EntityManager em=entityFactory.createEntityManager();
 		EntityTransaction tran=em.getTransaction();
 		tran.begin();
+		//em.persist(emp.getProj()); //Not used bcz we can have many classes
  		em.persist(emp);
 //		em.flush();                                      // If we are not using commit
 		tran.commit();
